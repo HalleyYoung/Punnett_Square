@@ -1,0 +1,1 @@
+This program produces a punnett square from a list of alleles for each parent.  To install, enter "java punnett.java" in a command prompt.
