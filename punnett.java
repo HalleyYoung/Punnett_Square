@@ -34,25 +34,6 @@ class PunnettSquare
 		printpunnett(punnett, combos1, combos2);
 	}
 	
-	//takes two list of possible genotypes the parents can transmit, returns a 2-d list of all possibilities a child can inherit
-	public static String[][] getpunnett(String[] p1, String[] p2)
-	{
-		String[][] punnett = new String[p1.length][p2.length];
-		for (int i = 0; i < p1.length; i++)
-		{
-			for (int j = 0; j < p2.length; j++)
-			{
-				String genotype = "";
-				for (int k = 0; k < p1[i].length(); k++) //construct the new genotype
-				{
-					genotype += p1[i].charAt(k);
-					genotype += p2[j].charAt(k);
-				}
-				punnett[i][j] = genotype;
-			}
-		}
-		return punnett;
-	}
 	
 	//takes a [n][2] array of n genes and each of the 2 alleles the parent possesses, and returns a list of all combinations of alleles the parent could give their child
 	public static String[] combine (String[][] alleles)
@@ -74,6 +55,26 @@ class PunnettSquare
 		}
 	}
 	
+	//takes two list of possible genotypes the parents can transmit, returns a 2-d list of all possibilities a child can inherit
+	public static String[][] getpunnett(String[] p1, String[] p2)
+	{
+		String[][] punnett = new String[p1.length][p2.length];
+		for (int i = 0; i < p1.length; i++)
+		{
+			for (int j = 0; j < p2.length; j++)
+			{
+				String genotype = "";
+				for (int k = 0; k < p1[i].length(); k++) //construct the new genotype
+				{
+					genotype += p1[i].charAt(k);
+					genotype += p2[j].charAt(k);
+				}
+				punnett[i][j] = genotype;
+			}
+		}
+		return punnett;
+	}
+
 	//print a readout of the punnett square
 	public static void printpunnett(String[][] punnett, String[] combos1, String[] combos2)
 	{
